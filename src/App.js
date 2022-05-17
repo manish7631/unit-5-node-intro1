@@ -1,9 +1,11 @@
  
 import './App.css';
+import { Product } from './Components/Product';
 
 function App() {
   const products = ["Android", "Blackberry", "iPhone", "Windows Phone"];
-  const products2 = ["Samsung", "HTC", "Micromax", "Apple"];
+  const products2 = [
+    {name:"Samsung", type:"disc"} ,{name:"HTC",type:"disc"} ,{name:"Micromax",type:"disc"}, {name:"Apple",type:"circle"}];
   return (
     <div className="App">
       <h1>Mobile Operating System</h1>
@@ -13,11 +15,13 @@ function App() {
         })}
       </ul>
       <h1>Mobile Manufactures</h1>
-      <ul>
+     
          {products2.map((e) => {
-           return <li>{e}</li>
+            return (
+              <Product {...e}/>
+            )
          })}
-      </ul>
+     
     </div>
   );
 }
